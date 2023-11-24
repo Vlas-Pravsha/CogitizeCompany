@@ -3,25 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.container {
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background: #292930;
+  width: 1034px;
+  height: 836px;
+  display: grid;
+  gap: 16px;
+  grid-template-rows: 60px 1fr;
+}
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 296px) 1fr;
+  gap: 16px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.ch-input:checked {
+  background-image: url("/Images/check.svg");
+  background-position: center center;
+}
+.child:first-child {
+  border: none;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+}
+.child:last-child {
+  border: none;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+}
+.child:nth-child(3) {
+  border: none;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+  border-right: 1px solid rgba(245, 245, 245, 0.08);
 }
