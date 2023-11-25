@@ -1,6 +1,11 @@
 import React from "react";
 
-const CheckBox = ({ handleCheckboxChange, value }: any) => {
+interface CheckBoxProps {
+  handleCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: any;
+}
+
+const CheckBox = ({ handleCheckboxChange, value }: CheckBoxProps) => {
   return (
     <div className="relative">
       <input

@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
-import Form from "@/components/Form";
 import Categories from "@/components/Categories";
 import CardList from "@/components/CardList";
 import { nanoid } from "nanoid";
 import useLocalStorage from "@/utils/useLocalStorage";
 import { paymentType } from "@/constants/positions";
+import Form from "@/components/Form";
 
 export interface PositionsInterface {
   title: string;
@@ -30,7 +30,7 @@ export default function Home() {
   function deleteCard(id: string) {
     setPositions(positions!.filter((item) => item.id !== id));
   }
-  function saveData({ name, responsibilities }: any) {
+  function saveData({ name, responsibilities }:any) {
     const newPostion = positions!.map((item) => {
       return item.id === activeCardId
         ? { ...item, title: name, responsibilities: responsibilities }

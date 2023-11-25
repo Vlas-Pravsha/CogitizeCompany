@@ -1,23 +1,35 @@
 "use client";
 import { responsibilities } from "@/constants/responsibilities";
-import React, { useEffect, useState } from "react";
+import { StringifyOptions } from "querystring";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Button from "./Button";
 import CheckBox from "./CheckBox";
 import Label from "./Label";
 import PositionInput from "./PositionInput";
 
-const Form = ({ saveData, currentPosition }: any) => {
+interface FormProps {
+  saveData: ({
+    name,
+    responsibilities,
+  }: {
+    name: string | undefined;
+    responsibilities: string[];
+  }) => void;
+  currentPosition:
+    | {
+        title: string;
+        price: number;
+        paymentType: string;
+        description: string;
+        id: string;
+        responsibilities: string[];
+      }
+    | undefined;
+}
+
+const Form = ({ saveData, currentPosition }: FormProps) => {
   const [name, setName] = useState("");
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (currentPosition) {
-      setName(currentPosition.title);
-      setSelectedCheckboxes([]);
-      setSelectedCheckboxes(currentPosition.responsibilities);
-      console.log(currentPosition.responsibilities);
-    }
-  }, [currentPosition]);
 
   function handleCheckboxChange(
     event: React.ChangeEvent<HTMLInputElement>,
@@ -31,6 +43,14 @@ const Form = ({ saveData, currentPosition }: any) => {
       setSelectedCheckboxes(filteredArray);
     }
   }
+  useLayoutEffect(() => {
+    if (currentPosition) {
+      setName(currentPosition.title);
+      setSelectedCheckboxes([]);
+      setSelectedCheckboxes(currentPosition.responsibilities);
+      console.log(currentPosition.responsibilities);
+    }
+  }, [currentPosition]);
   return (
     <div className="bg-dark-200 flex flex-col items-stretch w-full  mx-auto p-4 rounded-lg max-md:max-w-full max-md:mt-10 ">
       <PositionInput setName={setName} name={name} />

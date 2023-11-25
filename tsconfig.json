@@ -30,7 +30,9 @@
     "components/Button.ssx",
     "components/Tab.tsx",
     "components/Label.jsx",
-    "components/Label.еі"
-, "app/page.tsx"  ],
+    "components/Label.еі",
+    "app/page.tsx",
+    "components/Form.sx"
+, "components/Form.sx", "components/Form.js", "components/Form.s"  ],
   "exclude": ["node_modules"]
 }

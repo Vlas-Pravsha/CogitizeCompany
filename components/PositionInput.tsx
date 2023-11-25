@@ -1,6 +1,10 @@
 import React from "react";
 
-const PositionInput = ({ setName, name }: any) => {
+interface PositionInputProps {
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+}
+const PositionInput = ({ setName, name }: PositionInputProps) => {
   return (
     <div className="bg-dark-400 flex flex-col items-stretch px-4 py-6 rounded-lg max-md:max-w-full">
       <div className="text-grey-100 text-xs font-semibold  max-md:max-w-full">

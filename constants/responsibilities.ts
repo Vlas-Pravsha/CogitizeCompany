@@ -4,7 +4,7 @@ export enum ResponsibilitiesCategories {
   SHOWDOWN = "Разборки",
   CONTROL = "Управление",
 }
-export const responsibilities = [
+export const responsibilities = new Map([
   [
     ResponsibilitiesCategories.TRADING,
     [
@@ -43,4 +43,4 @@ export const responsibilities = [
       { value: "Выгонять из банды", slug: "kickOutOfBand" },
     ],
   ],
-];
+]);
