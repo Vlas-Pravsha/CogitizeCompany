@@ -3,9 +3,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import Categories from "@/components/Categories";
 import CardList from "@/components/CardList";
 import { nanoid } from "nanoid";
-import useLocalStorage from "@/utils/useLocalStorage";
 import { paymentType } from "@/constants/positions";
 import Form from "@/components/Form";
+import { useLocalStorage } from "@/utils/useLocalStorage";
 
 export interface PositionsInterface {
   title: string;
@@ -17,10 +17,18 @@ export interface PositionsInterface {
 }
 
 export default function Home() {
-  const [positions, setPositions] = useLocalStorage<PositionsInterface[]>(
-    "positions",
-    []
-  );
+  const [positions, setPositions] = useState<PositionsInterface[]>([]);
+
+  const jsonTasks = localStorage.getItem("positions");
+
+  useEffect(() => {
+    if (jsonTasks) {
+      setPositions(JSON.parse(jsonTasks));
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("positions", JSON.stringify(positions));
+  }, [positions]);
   const [activeTab, setActiveTab] = useState("Должности");
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
@@ -30,7 +38,7 @@ export default function Home() {
   function deleteCard(id: string) {
     setPositions(positions!.filter((item) => item.id !== id));
   }
-  function saveData({ name, responsibilities }:any) {
+  function saveData({ name, responsibilities }: any) {
     const newPostion = positions!.map((item) => {
       return item.id === activeCardId
         ? { ...item, title: name, responsibilities: responsibilities }

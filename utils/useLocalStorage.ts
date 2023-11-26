@@ -2,7 +2,10 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 type UseLocalStorage<T> = [T | undefined, Dispatch<SetStateAction<T>>];
 
-function useLocalStorage<T>(key: string, initialValue: T): UseLocalStorage<T> {
+export function useLocalStorage<T>(
+  key: string,
+  initialValue: T
+): UseLocalStorage<T> {
   const getStoredValue = (): T => {
     const storedValue = localStorage.getItem(key);
     return storedValue ? (JSON.parse(storedValue) as T) : initialValue;
@@ -15,5 +18,4 @@ function useLocalStorage<T>(key: string, initialValue: T): UseLocalStorage<T> {
 
   return [storedValue, setStoredValue];
 }
-
-export default useLocalStorage;
+``
