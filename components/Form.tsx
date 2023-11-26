@@ -1,7 +1,6 @@
 "use client";
 import { responsibilities } from "@/constants/responsibilities";
-import { StringifyOptions } from "querystring";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import CheckBox from "./CheckBox";
 import Label from "./Label";
@@ -43,12 +42,11 @@ const Form = ({ saveData, currentPosition }: FormProps) => {
       setSelectedCheckboxes(filteredArray);
     }
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (currentPosition) {
       setName(currentPosition.title);
       setSelectedCheckboxes([]);
       setSelectedCheckboxes(currentPosition.responsibilities);
-      console.log(currentPosition.responsibilities);
     }
   }, [currentPosition]);
   return (

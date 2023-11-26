@@ -18,7 +18,7 @@ export interface PositionsInterface {
 
 export default function Home() {
   const [positions, setPositions] = useLocalStorage<PositionsInterface[]>(
-    "positionsData",
+    "positions",
     []
   );
   const [activeTab, setActiveTab] = useState("Должности");
