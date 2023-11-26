@@ -8,16 +8,6 @@ interface CategoriesProps {
 }
 
 const Categories = ({ setActiveTab, activeTab }: CategoriesProps) => {
-  const jsonTasks = localStorage.getItem("activeTab");
-
-  useEffect(() => {
-    if (jsonTasks) {
-      setActiveTab(JSON.parse(jsonTasks));
-    }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("activeTab", JSON.stringify(activeTab));
-  }, [activeTab]);
   return (
     <div className="flex text-grey-400 text-sm font-medium leading-6">
       {categories.map((category) => (

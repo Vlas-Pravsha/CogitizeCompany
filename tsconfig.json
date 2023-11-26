@@ -33,6 +33,6 @@
     "components/Label.еі",
     "app/page.tsx",
     "components/Form.sx"
-, "components/Form.sx", "components/Form.js", "components/Form.s"  ],
+, "components/Form.sx", "components/Form.ts", "components/Form.s", "components/Form.jsx"  ],
   "exclude": ["node_modules"]
 }

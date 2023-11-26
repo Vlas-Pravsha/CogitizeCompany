@@ -5,7 +5,7 @@ import CardList from "@/components/CardList";
 import { nanoid } from "nanoid";
 import { paymentType } from "@/constants/positions";
 import Form from "@/components/Form";
-import { useLocalStorage } from "@/utils/useLocalStorage";
+import { useLocalStorage, useSessionStorage } from "@uidotdev/usehooks";
 
 export interface PositionsInterface {
   title: string;
@@ -17,19 +17,12 @@ export interface PositionsInterface {
 }
 
 export default function Home() {
-  const [positions, setPositions] = useState<PositionsInterface[]>([]);
+  const [positions, setPositions] = useLocalStorage<PositionsInterface[]>(
+    "positions",
+    []
+  );
+  const [activeTab, setActiveTab] = useLocalStorage<any>("activeTab", "");
 
-  const jsonTasks = localStorage.getItem("positions");
-
-  useEffect(() => {
-    if (jsonTasks) {
-      setPositions(JSON.parse(jsonTasks));
-    }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("positions", JSON.stringify(positions));
-  }, [positions]);
-  const [activeTab, setActiveTab] = useState("Должности");
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const handleCardClick = (id: string) => {
