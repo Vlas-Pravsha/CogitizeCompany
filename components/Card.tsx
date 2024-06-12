@@ -1,28 +1,27 @@
-import { paymentType } from "@/constants/positions";
-import React from "react";
+import { paymentType } from '@/constants/positions'
+import React from 'react'
 
 interface CardProps {
   item: {
-    title: string;
-    price: number;
-    paymentType: paymentType;
-    description: string;
-    id: string;
-  };
-  deleteCard: (id: string) => void;
-  isActive: boolean;
-  onClick?: () => void;
+    title: string
+    price: number
+    description: string
+    id: string
+  }
+  deleteCard: (id: string) => void
+  isActive: boolean
+  onClick?: () => void
 }
 const Card = ({
   deleteCard,
   isActive,
   onClick,
-  item: { title, price, paymentType, description, id },
+  item: { title, price, description, id },
 }: CardProps) => {
   return (
     <div
       className={` bg-dark-200 flex items-center justify-between gap-4 px-4 pt-[22px] pb-[18px] rounded-lg  ${
-        isActive ? "border-[#6764F1] border-2 border-solid" : ""
+        isActive ? 'border-[#6764F1] border-2 border-solid' : ''
       }`}
       onClick={onClick}
       key={title}
@@ -49,7 +48,10 @@ const Card = ({
           </div>
           <div className="text-zinc-500 text-right text-xs font-bold leading-4 whitespace-nowrap">
             <span className="font-bold text-amber-400">{price}</span>
-            <span className="font-medium text-zinc-500"> / {paymentType}</span>
+            <span className="font-medium text-zinc-500">
+              {' '}
+              / {paymentType.HOURLY}
+            </span>
           </div>
         </div>
         <div className="text-zinc-500 text-xs font-semibold flex justify-between">
@@ -63,7 +65,7 @@ const Card = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

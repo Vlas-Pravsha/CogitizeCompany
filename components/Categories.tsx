@@ -1,10 +1,10 @@
-import { categories } from "@/constants/categories";
-import React, { useEffect } from "react";
-import Tab from "./Tab";
+import { categories } from '@/constants/categories'
+import React, { useEffect } from 'react'
+import Tab from './Tab'
 
 interface CategoriesProps {
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
-  activeTab: string;
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>
+  activeTab: string
 }
 
 const Categories = ({ setActiveTab, activeTab }: CategoriesProps) => {
@@ -20,7 +20,7 @@ const Categories = ({ setActiveTab, activeTab }: CategoriesProps) => {
         </Tab>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Categories

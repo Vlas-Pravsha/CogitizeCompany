@@ -1,6 +1,6 @@
-export enum paymentType {
-  HOURLY = "час",
-  DAILY = "день",
-  WEEKLY = "неделя",
-  MONTHLY = "месяц",
-}
+export const paymentType = {
+  HOURLY: 'час',
+  DAILY: 'день',
+  WEEKLY: 'неделя',
+  MONTHLY: 'месяц',
+} as const

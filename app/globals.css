@@ -15,6 +15,7 @@
   gap: 16px;
   grid-template-rows: 60px 1fr;
 }
+
 .content {
   display: grid;
   grid-template-columns: minmax(0, 296px) 1fr;
@@ -25,14 +26,17 @@
   background-image: url("/Images/check.svg");
   background-position: center center;
 }
+
 .child:first-child {
   border: none;
   border-bottom: 1px solid rgba(245, 245, 245, 0.08);
 }
+
 .child:last-child {
   border: none;
   border-bottom: 1px solid rgba(245, 245, 245, 0.08);
 }
+
 .child:nth-child(3) {
   border: none;
   border-bottom: 1px solid rgba(245, 245, 245, 0.08);

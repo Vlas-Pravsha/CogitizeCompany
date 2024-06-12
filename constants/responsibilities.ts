@@ -1,12 +1,13 @@
-export enum ResponsibilitiesCategories {
-  TRADING = "Торговля",
-  PRODUCTION = "Производство",
-  SHOWDOWN = "Разборки",
-  CONTROL = "Управление",
-}
+export const responsibilitiesCategories = {
+  TRADING: "Торговля",
+  PRODUCTION: "Производство",
+  SHOWDOWN: "Разборки",
+  CONTROL: "Управление",
+} as const;
+
 export const responsibilities = new Map([
   [
-    ResponsibilitiesCategories.TRADING,
+    responsibilitiesCategories.TRADING,
     [
       {
         value: "Продавать продукт",
@@ -23,21 +24,21 @@ export const responsibilities = new Map([
     ],
   ],
   [
-    ResponsibilitiesCategories.PRODUCTION,
+    responsibilitiesCategories.PRODUCTION,
     [
       { value: "Закупать сырье", slug: "buyRawMaterials" },
       { value: "Назначать рабочих", slug: "assignWorkers" },
     ],
   ],
   [
-    ResponsibilitiesCategories.SHOWDOWN,
+    responsibilitiesCategories.SHOWDOWN,
     [
       { value: "Дуэль", slug: "duel" },
       { value: "Выставлять претензии", slug: "makeClaims" },
     ],
   ],
   [
-    ResponsibilitiesCategories.CONTROL,
+    responsibilitiesCategories.CONTROL,
     [
       { value: "Назначать должности", slug: "assignPositions" },
       { value: "Выгонять из банды", slug: "kickOutOfBand" },

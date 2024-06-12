@@ -1,15 +1,15 @@
-import { PositionsInterface } from "@/app/page";
-import React, { useState } from "react";
-import Button from "./Button";
-import Card from "./Card";
+import { PositionsInterface } from '@/app/page'
+import React from 'react'
+import Button from './Button'
+import Card from './Card'
 
 interface CardListProps {
-  addCard: () => void;
-  setPositions: React.Dispatch<React.SetStateAction<PositionsInterface[]>>;
-  positions: PositionsInterface[];
-  deleteCard: (id: string) => void;
-  activeCardId: string | null;
-  handleCardClick: (id: string) => void;
+  addCard: () => void
+  setPositions: React.Dispatch<React.SetStateAction<PositionsInterface[]>>
+  positions: PositionsInterface[]
+  deleteCard: (id: string) => void
+  activeCardId: string | null
+  handleCardClick: (id: string) => void
 }
 
 const CardList = ({
@@ -20,15 +20,15 @@ const CardList = ({
   activeCardId,
   handleCardClick,
 }: CardListProps) => {
-  const card = React.useRef<number>(0);
-  const cardOver = React.useRef<number>(0);
+  const card = React.useRef<number>(0)
+  const cardOver = React.useRef<number>(0)
 
   function handleSort() {
-    const cardClone = [...positions];
-    const temp = cardClone[card.current];
-    cardClone[card.current] = cardClone[cardOver.current];
-    cardClone[cardOver.current] = temp;
-    setPositions(cardClone);
+    const cardClone = [...positions]
+    const temp = cardClone[card.current]
+    cardClone[card.current] = cardClone[cardOver.current]
+    cardClone[cardOver.current] = temp
+    setPositions(cardClone)
   }
 
   return (
@@ -38,8 +38,8 @@ const CardList = ({
           <div
             key={item.id}
             draggable={true}
-            onDragStart={(e) => {
-              card.current = index;
+            onDragStart={() => {
+              card.current = index
             }}
             onDragEnter={() => (cardOver.current = index)}
             onDragEnd={handleSort}
@@ -56,7 +56,7 @@ const CardList = ({
       </div>
       <Button onClick={() => addCard()}>Создать новую должность</Button>
     </div>
-  );
-};
+  )
+}
 
-export default CardList;
+export default CardList
